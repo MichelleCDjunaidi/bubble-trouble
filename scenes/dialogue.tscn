@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://i0qpi3ajikyn"]
+
+[ext_resource type="Script" path="res://scenes/dialogue.gd" id="1_1kee8"]
+[ext_resource type="Texture2D" uid="uid://byd4w6f56ramy" path="res://Sprite-0001.png" id="1_voi35"]
+[ext_resource type="Texture2D" uid="uid://bovn01dofo0r1" path="res://icon.svg" id="3_f0n3a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dtop"]
+size = Vector2(797, 144)
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_1kee8")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_right = 796.0
+offset_bottom = 149.0
+texture = ExtResource("1_voi35")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(397.5, 75)
+shape = SubResource("RectangleShape2D_7dtop")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 27.0
+offset_right = 760.0
+offset_bottom = 119.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(72, 72)
+scale = Vector2(0.78125, 0.78125)
+texture = ExtResource("3_f0n3a")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
