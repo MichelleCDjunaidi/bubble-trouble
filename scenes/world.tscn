@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://5vrh1niv735y"]
+[gd_scene load_steps=7 format=4 uid="uid://5vrh1niv735y"]
 
 [ext_resource type="Texture2D" uid="uid://dwg71dfl1sh1e" path="res://tilesheet_complete.png" id="1_pemqy"]
 [ext_resource type="PackedScene" uid="uid://br36t704nivup" path="res://scenes/player.tscn" id="2_y733h"]
 [ext_resource type="PackedScene" uid="uid://clqna6i8r03e" path="res://scenes/enemy.tscn" id="3_chx84"]
-[ext_resource type="PackedScene" uid="uid://cae2gg7ycsioq" path="res://scenes/tower.tscn" id="4_0yk0b"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3a8jx"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
@@ -301,6 +300,3 @@ position = Vector2(891, 61)
 scale = Vector2(0.4, 0.4)
 player = NodePath("../player")
 metadata/_edit_group_ = true
-
-[node name="Tower" parent="." instance=ExtResource("4_0yk0b")]
-position = Vector2(375, 145)
