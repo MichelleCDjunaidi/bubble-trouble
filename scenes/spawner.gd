@@ -1,6 +1,6 @@
 extends Node2D
 var sequence = [5,4,3,2,1]
-var enemy = load("res://scenes/bullet.tscn")
+var enemy = load("res://scenes/enemy.tscn")
 var index = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,5 +23,6 @@ func _on_timer_timeout():
 
 func go_to_dialogue():
 	print("going to dialogue")
+	get_tree().change_scene_to_file("res://scenes/world.tscn")
 	pass
 	#go to the dialogue scene
