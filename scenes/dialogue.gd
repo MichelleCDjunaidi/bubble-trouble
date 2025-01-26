@@ -1,7 +1,7 @@
 extends Control
 
-var convos = ["TEXT1", "TEXT2"]
-var sprites = ["res://happy_face.png", "res://sad_face.png"]
+var convos = ["What's going on here?", "We don't know either! Please find out for us, Bobble!", "Guess it's time for me, Bobble the Wizard Apprentice, to shine!"]
+var sprites = ["res://sprites/bobble.png", "res://sprites/horde.png", "res://sprites/bobble.png"]
 var curr_idx = 0
 
 # Called when the node enters the scene tree for the first time.

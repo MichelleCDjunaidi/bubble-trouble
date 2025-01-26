@@ -18,5 +18,6 @@ func makepath() -> void:
 		
 
 
+
 func _on_timer_timeout() -> void:
 	makepath()
