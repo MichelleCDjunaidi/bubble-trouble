@@ -15,3 +15,10 @@ func _process(delta: float) -> void:
 func set_velocity(new_velocity: Vector2):
 	velocity = new_velocity
 	pass
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	queue_free()
+	body.queue_free()
+	
+	pass # Replace with function body.
