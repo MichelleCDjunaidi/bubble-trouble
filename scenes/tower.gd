@@ -30,8 +30,9 @@ func _on_timer_timeout() -> void:
 	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("malding2")
+	
 	curr_target = body
+	print(curr_target)
 	#check timer
 	#if yes, spawn bullet
 	#aim it at area.position (do we need to do vector calculations?)

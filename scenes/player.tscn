@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://br36t704nivup"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_blqei"]
-[ext_resource type="Texture2D" uid="uid://bovn01dofo0r1" path="res://icon.svg" id="2_at3co"]
+[ext_resource type="Texture2D" uid="uid://c5lck4drs5e6i" path="res://sprites/horde.png" id="2_t6h0y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dyvte"]
 size = Vector2(128, 128)
@@ -14,7 +14,10 @@ script = ExtResource("1_blqei")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_at3co")
+texture_filter = 3
+position = Vector2(-1.90735e-06, 1.90735e-06)
+scale = Vector2(3.95833, 3.95833)
+texture = ExtResource("2_t6h0y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_dyvte")

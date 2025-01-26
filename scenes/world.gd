@@ -10,7 +10,7 @@ extends Node2D
 @onready var tile_map_layer = $TileMapLayer
 @onready var player = $player
 
-var tower = load("res://scenes/player.tscn")
+var tower = load("res://scenes/tower.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
