@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cae2gg7ycsioq"]
+[gd_scene load_steps=8 format=3 uid="uid://cae2gg7ycsioq"]
 
 [ext_resource type="Script" path="res://scenes/tower.gd" id="1_heel8"]
 [ext_resource type="Texture2D" uid="uid://dwg71dfl1sh1e" path="res://tilesheet_complete.png" id="2_5tgf5"]
 [ext_resource type="Texture2D" uid="uid://cn7xq2i3bjaaw" path="res://sprites/bobble.png" id="2_u0np8"]
+[ext_resource type="AudioStream" uid="uid://fgoifiixc5y3" path="res://audio/bubble.wav" id="4_ve8xq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3oogs"]
 texture = ExtResource("2_5tgf5")
@@ -3261,8 +3262,12 @@ collision_mask = 3
 shape = SubResource("CapsuleShape2D_er8yv")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.5
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ve8xq")
+pitch_scale = 1.5
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
