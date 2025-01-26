@@ -16,13 +16,14 @@ func _on_timer_timeout():
 	if(index==sequence.size()):
 		go_to_dialogue()
 	else:
+		print("a")
 		var instance = enemy.instantiate()
-		add_child(instance)
+		print("b")
+		get_parent().add_child(instance)
 		$Timer.start(sequence[index])
 		index += 1
 
 func go_to_dialogue():
-	print("going to dialogue")
-	get_tree().change_scene_to_file("res://scenes/world.tscn")
+	get_tree().change_scene_to_file("res://scenes/endgame.tscn")
 	pass
 	#go to the dialogue scene
