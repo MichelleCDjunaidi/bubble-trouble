@@ -12,7 +12,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(Globals.grid_clicked and base_timer.is_stopped())
 	if Globals.grid_clicked and base_timer.is_stopped():
+		print('adjkladjlkad')
 		base_label.show()
 		base_timer.start()
 		Globals.base_timer_started = true
@@ -22,6 +24,7 @@ func _process(delta: float) -> void:
 		base_timer.stop()
 		base_label.hide()
 		Globals.base_timer_started = false
+	#pass
 
 	
 func time_left(): 
@@ -35,5 +38,5 @@ func _on_button_pressed() -> void:
 	Globals.button_clicked = true
 		
 
-func _on_timer_timeout() -> void:
-	pass
+func _on_base_timer_timeout() -> void:
+	pass # Replace with function body.
