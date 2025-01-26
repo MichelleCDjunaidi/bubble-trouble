@@ -20,10 +20,10 @@ func _on_timer_timeout() -> void:
 		var bullet_vector = curr_target.position - position
 		bullet_vector = bullet_vector.normalized()
 		if timer_finished:
-			print("what")
 			var bullet_instance = bullet.instantiate()
 			bullet_instance.set_velocity(bullet_vector)
 			add_child(bullet_instance)
+			$AudioStreamPlayer2D.play()
 		timer_finished = false
 		$Timer.start()
 	pass # Replace with function body.

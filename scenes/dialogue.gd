@@ -1,7 +1,7 @@
 extends Control
 
-var convos = ["TEXT1", "TEXT2"]
-var sprites = ["res://happy_face.png", "res://sad_face.png"]
+var convos = ["What's going on here?", "We don't know either! Please find out for us, Bobble!", "Guess it's time for me, Bobble the Wizard Apprentice, to shine!"]
+var sprites = ["res://sprites/bobble.png", "res://sprites/horde.png", "res://sprites/bobble.png"]
 var curr_idx = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -15,6 +15,7 @@ func _process(delta: float) -> void:
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index==MOUSE_BUTTON_LEFT:
 		if curr_idx >= convos.size():
+			get_tree().change_scene_to_file("res://scenes/world.tscn")
 			print("figure out change scene")
 		else:
 			$Label.text = convos[curr_idx]

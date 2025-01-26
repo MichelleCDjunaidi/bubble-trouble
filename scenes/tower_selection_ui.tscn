@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbxhr82j0vsqh"]
+
+[ext_resource type="Script" path="res://scenes/tower_selection_ui.gd" id="1_rl62t"]
+[ext_resource type="Texture2D" uid="uid://cn7xq2i3bjaaw" path="res://sprites/bobble.png" id="2_pimo3"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_rl62t")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 81.0
+offset_bottom = 82.0
+icon = ExtResource("2_pimo3")
+expand_icon = true
+
+[node name="BaseTimer" type="Timer" parent="."]
+wait_time = 7.0
+autostart = true
+
+[node name="BaseLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 19.0
+offset_right = 81.0
+offset_bottom = 60.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="BaseTimer" to="." method="_on_base_timer_timeout"]

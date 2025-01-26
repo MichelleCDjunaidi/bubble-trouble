@@ -5,6 +5,9 @@ const speed = 150
 @export var player: Node2D
 @onready var nav_agent:= $NavigationAgent2D as NavigationAgent2D
 
+func _ready():
+	player = get_node("/root/Node2D/player")
+	print(player)
 #movement of enemey is classfied as void
 func _physics_process(delta: float) -> void:
 	#direction based on navigation agent
@@ -16,6 +19,7 @@ func _physics_process(delta: float) -> void:
 func makepath() -> void:
 	nav_agent.target_position = player.global_position
 		
+
 
 
 func _on_timer_timeout() -> void:
