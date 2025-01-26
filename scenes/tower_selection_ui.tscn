@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbxhr82j0vsqh"]
+
+[ext_resource type="Texture2D" uid="uid://bupqkva72hjf7" path="res://sad_face.png" id="1_82fox"]
+[ext_resource type="Script" path="res://scenes/tower_selection_ui.gd" id="1_rl62t"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_rl62t")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+icon = ExtResource("1_82fox")
+
+[node name="BaseTimer" type="Timer" parent="."]
+wait_time = 7.0
+autostart = true
+
+[node name="BaseLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 42.0
+offset_right = 41.0
+offset_bottom = 65.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="BaseTimer" to="." method="_on_base_timer_timeout"]
