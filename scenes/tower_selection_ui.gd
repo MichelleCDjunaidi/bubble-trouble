@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		base_timer.start()
 		Globals.base_timer_started = true
 		Globals.grid_clicked = false
-		button.modulate = Color(0.501961, 0.501961, 0.501961, 1) # Normalized RGBA values
+		button.modulate = Color(0.411765, 0.411765, 0.411765, 1) # Normalized RGBA values
 	base_label.text = str(time_left())
 	
 	if time_left() < 0.1:

@@ -22,8 +22,11 @@ func _process(delta: float) -> void:
 	#print(Globals.button_clicked)
 	if Globals.button_clicked:
 		Engine.time_scale = 0.1
+		tile_map_layer.modulate = Color(0.501961, 0.501961, 0.501961, 1) # Normalized RGBA values
+
 	else:
 		Engine.time_scale = 1
+		tile_map_layer.modulate = Color(1,1,1,1) # Normalized RGBA values
 
 func _unhandled_input(event):
 	#upon clicking, 
