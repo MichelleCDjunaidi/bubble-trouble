@@ -2,11 +2,13 @@ extends Control
 
 @onready var base_timer = $BaseTimer
 @onready var base_label = $BaseLabel
+@onready var button = $Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	base_timer.stop()
 	base_label.hide()
+	button.modulate = Color(1,1, 1,1) # Normalized RGBA values
 	#base_timer.start()
 	pass # Replace with function body.
 
@@ -19,10 +21,13 @@ func _process(delta: float) -> void:
 		base_timer.start()
 		Globals.base_timer_started = true
 		Globals.grid_clicked = false
+		button.modulate = Color(0.501961, 0.501961, 0.501961, 1) # Normalized RGBA values
 	base_label.text = str(time_left())
+	
 	if time_left() < 0.1:
 		base_timer.stop()
 		base_label.hide()
+		button.modulate = Color(1,1, 1,1) # Normalized RGBA values
 		Globals.base_timer_started = false
 	#pass
 
