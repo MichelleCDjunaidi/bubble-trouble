@@ -34,18 +34,15 @@ func _unhandled_input(event):
 		#pass
 
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		var clicked_cell = tile_map_layer.local_to_map(tile_map_layer.get_local_mouse_position())
+		var actual_cell = Vector2i(16,8)
 		
-		if Globals.base_timer_started == false:
+		if Globals.base_timer_started == false and tile_map_layer.get_cell_atlas_coords(clicked_cell) == actual_cell and Globals.button_clicked:
 			Globals.grid_clicked = true
 			
-			print('gridclicked:', Globals.grid_clicked)
-			var clicked_cell = tile_map_layer.local_to_map(tile_map_layer.get_local_mouse_position())
-			var actual_cell = Vector2i(16,8)
-			
-			if tile_map_layer.get_cell_atlas_coords(clicked_cell) == actual_cell:
-				var tower = tower.instantiate()
-				tower.position = tile_map_layer.map_to_local(clicked_cell)
-				add_child(tower)
+			var tower = tower.instantiate()
+			tower.position = tile_map_layer.map_to_local(clicked_cell)
+			add_child(tower)
 			Globals.button_clicked = false			
 		
 		else:
