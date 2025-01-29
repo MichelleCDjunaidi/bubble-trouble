@@ -7,7 +7,8 @@ const speed = 150
 
 func _ready():
 	player = get_node("/root/World/player")
-	print(player)
+	#print(player)
+	pass
 #movement of enemey is classfied as void
 func _physics_process(delta: float) -> void:
 	#direction based on navigation agent
@@ -17,10 +18,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func makepath() -> void:
-	nav_agent.target_position = player.global_position
+	if is_instance_valid(player):
+		nav_agent.target_position = player.global_position
 		
-
-
-
 func _on_timer_timeout() -> void:
 	makepath()

@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/enemy.gd" id="1_hsq61"]
 [ext_resource type="Texture2D" uid="uid://bo8yknibo4cmq" path="res://sprites/nail.png" id="2_itot5"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ttg81"]
-radius = 31.0161
+[ext_resource type="Shape2D" uid="uid://dcfrwah2sxal4" path="res://scenes/hammer_enemy_collision_shape.tres" id="2_qn2dc"]
 
 [node name="enemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 6
@@ -13,14 +11,16 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_hsq61")
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = ExtResource("2_qn2dc")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.756863, 0.380392, 0.141176, 1)
 position = Vector2(6, 10)
 scale = Vector2(2, 2)
 texture = ExtResource("2_itot5")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ttg81")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
@@ -28,4 +28,8 @@ shape = SubResource("CircleShape2D_ttg81")
 wait_time = 0.1
 autostart = true
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("2_qn2dc")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

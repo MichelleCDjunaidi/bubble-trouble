@@ -1,12 +1,5 @@
 extends Node2D
 
-#click on button
-#button click programmed
-
-#world slows down
-#click on grid
-#dont grid spawning if timer is enabled
-
 @onready var tile_map_layer = $TileMapLayerGrass
 @onready var player = $player
 
@@ -34,6 +27,7 @@ func _unhandled_input(event):
 		#pass
 
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		#cells are grid positions of tile map layer, not screen coordinates
 		var clicked_cell = tile_map_layer.local_to_map(tile_map_layer.get_local_mouse_position())
 		var actual_cell = Vector2i(16,8)
 		var player_cell = tile_map_layer.local_to_map(player.position)
@@ -45,7 +39,6 @@ func _unhandled_input(event):
 			tower.position = tile_map_layer.map_to_local(clicked_cell)
 			add_child(tower)
 			Globals.button_clicked = false			
-		
 		else:
 			Globals.button_clicked = false
 	

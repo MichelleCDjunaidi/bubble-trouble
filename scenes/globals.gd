@@ -3,6 +3,8 @@ extends Node
 var button_clicked = false
 var grid_clicked = false
 var base_timer_started = false
+var enemy_entered = false
+var spawn_enemy = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
