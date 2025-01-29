@@ -10,6 +10,7 @@ height = 422.0
 
 [node name="Tower" type="Node2D"]
 texture_filter = 3
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_heel8")
 
 [node name="Icon" type="Sprite2D" parent="."]

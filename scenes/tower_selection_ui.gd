@@ -14,9 +14,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(Globals.grid_clicked and base_timer.is_stopped())
+	#print(Globals.grid_clicked and base_timer.is_stopped())
 	if Globals.grid_clicked and base_timer.is_stopped():
-		print('adjkladjlkad')
+		#print('adjkladjlkad')
 		base_label.show()
 		base_timer.start()
 		Globals.base_timer_started = true

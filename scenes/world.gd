@@ -7,7 +7,7 @@ extends Node2D
 #click on grid
 #dont grid spawning if timer is enabled
 
-@onready var tile_map_layer = $TileMapLayer
+@onready var tile_map_layer = $TileMapLayerGrass
 @onready var player = $player
 
 var tower = load("res://scenes/tower.tscn")
@@ -37,7 +37,9 @@ func _unhandled_input(event):
 		var clicked_cell = tile_map_layer.local_to_map(tile_map_layer.get_local_mouse_position())
 		var actual_cell = Vector2i(16,8)
 		
-		if Globals.base_timer_started == false and tile_map_layer.get_cell_atlas_coords(clicked_cell) == actual_cell and Globals.button_clicked:
+		#and tile_map_layer.get_cell_atlas_coords(clicked_cell) == actual_cell
+		
+		if Globals.base_timer_started == false and Globals.button_clicked:
 			Globals.grid_clicked = true
 			
 			var tower = tower.instantiate()
