@@ -36,12 +36,11 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		var clicked_cell = tile_map_layer.local_to_map(tile_map_layer.get_local_mouse_position())
 		var actual_cell = Vector2i(16,8)
+		var player_cell = tile_map_layer.local_to_map(player.position)
+		var player_cell_array = [player_cell,player_cell-Vector2i(1,0),player_cell-Vector2i(1,-1),player_cell+Vector2i(0,1)]
 		
-		#and tile_map_layer.get_cell_atlas_coords(clicked_cell) == actual_cell
-		
-		if Globals.base_timer_started == false and Globals.button_clicked:
+		if Globals.base_timer_started == false and Globals.button_clicked and clicked_cell not in player_cell_array:
 			Globals.grid_clicked = true
-			
 			var tower = tower.instantiate()
 			tower.position = tile_map_layer.map_to_local(clicked_cell)
 			add_child(tower)

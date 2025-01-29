@@ -4,6 +4,8 @@ var enemy = load("res://scenes/enemy.tscn")
 var index = 0
 var can_leave = false
 # Called when the node enters the scene tree for the first time.
+@onready var spawner = $"."
+
 func _ready():
 	pass # Replace with function body.
 
@@ -21,9 +23,8 @@ func _on_timer_timeout():
 		can_leave = true
 		$Timer.stop()
 	else:
-		print("a")
 		var instance = enemy.instantiate()
-		print("b")
+		instance.position = spawner.position 
 		get_parent().add_child(instance)
 		$Timer.start(sequence[index])
 		index += 1

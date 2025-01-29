@@ -6,7 +6,7 @@ const speed = 150
 @onready var nav_agent:= $NavigationAgent2D as NavigationAgent2D
 
 func _ready():
-	player = get_node("/root/Node2D/player")
+	player = get_node("/root/World/player")
 	print(player)
 #movement of enemey is classfied as void
 func _physics_process(delta: float) -> void:
