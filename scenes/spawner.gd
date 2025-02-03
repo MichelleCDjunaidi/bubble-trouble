@@ -17,11 +17,7 @@ func _ready():
 func _process(delta):
 	if (get_tree().get_nodes_in_group("enemy").size()==0 and can_leave):
 		go_to_dialogue()
-	#despawns enemy upon entering player location
-	#for i in get_tree().get_nodes_in_group("enemy"):
-		#print(i.enemy_entered)
-		#print(type_string(typeof(i)))
-		
+
 func instantiate_enemy(enemy_type):
 	instance = enemy_type.instantiate()
 	instance.position = spawner.position 
@@ -39,6 +35,5 @@ func _on_timer_timeout():
 		instantiate_enemy(invis_enemy)
 		index += 1
 
-		
 func go_to_dialogue():
 	get_tree().change_scene_to_file("res://scenes/endgame.tscn")

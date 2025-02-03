@@ -37,4 +37,4 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func stealth():
 	if stealth_skill:	
 		self.modulate.a = 0.3
-		print('adjad')
+		#print('adjad')
