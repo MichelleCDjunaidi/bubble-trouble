@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvuo71wmr1xlh"]
+
+[ext_resource type="Script" path="res://scenes/enemy.gd" id="1_nx5x1"]
+[ext_resource type="Shape2D" uid="uid://dcfrwah2sxal4" path="res://scenes/hammer_enemy_collision_shape.tres" id="2_g7je7"]
+[ext_resource type="Texture2D" uid="uid://bovn01dofo0r1" path="res://icon.svg" id="3_wt3c4"]
+
+[node name="FastEnemy" type="CharacterBody2D" node_paths=PackedStringArray("area2d")]
+collision_mask = 2
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_nx5x1")
+speed = 600
+health = 50
+area2d = NodePath("Area2D")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = ExtResource("2_g7je7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.756863, 0.380392, 0.141176, 1)
+position = Vector2(0, 2)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_wt3c4")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("2_g7je7")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_fast_enemy_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

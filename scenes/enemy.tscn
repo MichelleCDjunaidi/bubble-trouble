@@ -4,12 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://bo8yknibo4cmq" path="res://sprites/nail.png" id="2_itot5"]
 [ext_resource type="Shape2D" uid="uid://dcfrwah2sxal4" path="res://scenes/hammer_enemy_collision_shape.tres" id="2_qn2dc"]
 
-[node name="enemy" type="CharacterBody2D" groups=["enemy"]]
-collision_layer = 6
-collision_mask = 7
+[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("area2d") groups=["enemy"]]
+collision_mask = 2
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_hsq61")
+area2d = NodePath("Area2D")
 
 [node name="Area2D" type="Area2D" parent="."]
 

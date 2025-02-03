@@ -1,6 +1,8 @@
 extends Node2D
-var sequence = [5,4,3,2,1]
+#var sequence = [1,1,1,1,1]
 var enemy = load("res://scenes/enemy.tscn")
+var fast_enemy = load("res://scenes/fast_enemy.tscn")
+var invis_enemy = load('res://scenes/invis_enemy.tscn')
 var index = 0
 var can_leave = false
 var instance
@@ -8,29 +10,35 @@ var instance
 @onready var spawner = $"."
 
 func _ready():
+	$Timer.start()
 	pass # Replace with function body.
-
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (get_tree().get_nodes_in_group("enemy").size()==0 and can_leave):
 		go_to_dialogue()
 	#despawns enemy upon entering player location
-	if Globals.enemy_entered and is_instance_valid(instance):
-		instance.queue_free()
+	#for i in get_tree().get_nodes_in_group("enemy"):
+		#print(i.enemy_entered)
+		#print(type_string(typeof(i)))
+		
+func instantiate_enemy(enemy_type):
+	instance = enemy_type.instantiate()
+	instance.position = spawner.position 
+	instance.name = "instance_" + str(index)
+	get_parent().add_child(instance)
+	#index += 1
 		
 func _on_timer_timeout():
-	if(index==sequence.size()):
+	if index == 5:
 		can_leave = true
 		$Timer.stop()
-		Globals.spawn_enemy=false
 	else:
-		instance = enemy.instantiate()
-		instance.position = spawner.position 
-		get_parent().add_child(instance)
-		$Timer.start(sequence[index])
+		instantiate_enemy(fast_enemy)
+		instantiate_enemy(enemy)
+		instantiate_enemy(invis_enemy)
 		index += 1
-		Globals.spawn_enemy=true
 
+		
 func go_to_dialogue():
 	get_tree().change_scene_to_file("res://scenes/endgame.tscn")
