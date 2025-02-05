@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var tile_map_layer_input = $tile_map_layer_input
+@onready var tile_map_layer_input = $tile_map_layer_grass
 @onready var player = $player
 
 var tower = load("res://scenes/towers/tower.tscn")
@@ -8,12 +8,11 @@ var tower = load("res://scenes/towers/tower.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	tile_map_layer_input.z_index = -25
-	tile_map_layer_input.visible = false
+	#tile_map_layer_input.visible = false
 	$CanvasModulate.color = Color(0.501961, 0.501961, 0.501961, 1)
 	$CanvasModulate.visible = false
 	$CanvasModulate.z_index = 100
 
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#print(Globals.button_clicked)
@@ -42,22 +41,8 @@ func _unhandled_input(event):
 			Globals.grid_clicked = true
 			var tower = tower.instantiate()
 			tower.position = tile_map_layer_input.map_to_local(clicked_cell)
+			tower.radius(50)
 			add_child(tower)
 			Globals.button_clicked = false			
 		else:
 			Globals.button_clicked = false
-			
-#func modulate_tilemaps():
-	#for child in get_children():
-		#if 'tile_map' in child.name:
-			#child.modulate = Color(0.501961, 0.501961, 0.501961, 1) # Normalized RGBA values
-			##print('a')
-			#
-#func unmodulate_tilemaps():
-	#for child in get_children():
-		#if 'tile_map' in child.name:
-			#child.modulate = Color(1,1,1,1) # Normalized RGBA values
-			##print('a')
-
-
-	

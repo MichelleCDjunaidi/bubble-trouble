@@ -7,6 +7,8 @@ var curr_target = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#print($CollisionShape2D.get_shape().get_rect())
+
 	pass # Replace with function body.
 
 
@@ -43,3 +45,6 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if curr_target == body:
 		curr_target = null
 	pass # Replace with function body.
+	
+func radius(radius):
+	$CollisionShape2D.get_shape().set_radius(radius)
