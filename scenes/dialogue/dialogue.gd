@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index==MOUSE_BUTTON_LEFT:
 		if curr_idx >= convos.size():
-			get_tree().change_scene_to_file("res://scenes/world.tscn")
+			get_tree().change_scene_to_file("res://scenes/stages/world.tscn")
 			print("figure out change scene")
 		else:
 			$Label.text = convos[curr_idx]

@@ -1,8 +1,8 @@
 extends Node2D
 #var sequence = [1,1,1,1,1]
-var enemy = load("res://scenes/enemy.tscn")
-var fast_enemy = load("res://scenes/fast_enemy.tscn")
-var invis_enemy = load('res://scenes/invis_enemy.tscn')
+var enemy = load("res://scenes/enemies/normal enemies/enemy.tscn")
+var fast_enemy = load("res://scenes/enemies/normal enemies/fast_enemy.tscn")
+var invis_enemy = load('res://scenes/enemies/normal enemies/invis_enemy.tscn')
 var index = 0
 var can_leave = false
 var instance
