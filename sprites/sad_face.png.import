@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bupqkva72hjf7"
-path="res://.godot/imported/sad_face.png-ef5a84dba62d57aed57810e4e0f44044.ctex"
+path="res://.godot/imported/sad_face.png-ea49ab739ea6bcda33742a9132f8bbe3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sad_face.png"
-dest_files=["res://.godot/imported/sad_face.png-ef5a84dba62d57aed57810e4e0f44044.ctex"]
+source_file="res://sprites/sad_face.png"
+dest_files=["res://.godot/imported/sad_face.png-ea49ab739ea6bcda33742a9132f8bbe3.ctex"]
 
 [params]
 

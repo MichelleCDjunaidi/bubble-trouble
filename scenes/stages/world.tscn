@@ -1,11 +1,11 @@
 [gd_scene load_steps=28 format=4 uid="uid://5vrh1niv735y"]
 
-[ext_resource type="Script" path="res://scenes/world.gd" id="1_evi0y"]
-[ext_resource type="PackedScene" uid="uid://br36t704nivup" path="res://scenes/player.tscn" id="2_y733h"]
+[ext_resource type="Script" path="res://scenes/stages/world.gd" id="1_evi0y"]
+[ext_resource type="PackedScene" uid="uid://br36t704nivup" path="res://scenes/player/player.tscn" id="2_y733h"]
 [ext_resource type="Texture2D" uid="uid://cjl5eki6xb7mp" path="res://new_sprites/soil_scaled_8x_pngcrushed.png" id="3_7hsvh"]
-[ext_resource type="PackedScene" uid="uid://bbxhr82j0vsqh" path="res://scenes/tower_selection_ui.tscn" id="4_2y3vq"]
+[ext_resource type="PackedScene" uid="uid://bbxhr82j0vsqh" path="res://scenes/ui/tower_selection_ui.tscn" id="4_2y3vq"]
 [ext_resource type="Texture2D" uid="uid://y8r3eb6hae15" path="res://new_sprites/grass_scaled_8x_pngcrushed.png" id="4_d2esw"]
-[ext_resource type="PackedScene" uid="uid://cpoaniq1nmq8l" path="res://scenes/spawner.tscn" id="5_y78ao"]
+[ext_resource type="PackedScene" uid="uid://cpoaniq1nmq8l" path="res://scenes/enemies/spawner/spawner.tscn" id="5_y78ao"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lp25u"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)

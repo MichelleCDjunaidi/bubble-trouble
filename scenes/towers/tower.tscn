@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cae2gg7ycsioq"]
 
-[ext_resource type="Script" path="res://scenes/tower.gd" id="1_heel8"]
+[ext_resource type="Script" path="res://scenes/towers/tower.gd" id="1_heel8"]
 [ext_resource type="Texture2D" uid="uid://cn7xq2i3bjaaw" path="res://sprites/bobble.png" id="2_u0np8"]
 [ext_resource type="AudioStream" uid="uid://fgoifiixc5y3" path="res://audio/bubble.wav" id="4_ve8xq"]
 

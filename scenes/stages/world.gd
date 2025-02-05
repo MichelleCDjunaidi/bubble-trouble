@@ -23,9 +23,6 @@ func _process(delta: float) -> void:
 
 func _unhandled_input(event):
 	#upon clicking, 
-	#if event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT and Globals.button_clicked:
-		#pass
-
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		#cells are grid positions of tile map layer, not screen coordinates
 		var clicked_cell = tile_map_layer.local_to_map(tile_map_layer.get_local_mouse_position())

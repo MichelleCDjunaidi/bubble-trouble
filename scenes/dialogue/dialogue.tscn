@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://i0qpi3ajikyn"]
 
-[ext_resource type="Script" path="res://scenes/dialogue.gd" id="1_1kee8"]
-[ext_resource type="Texture2D" uid="uid://byd4w6f56ramy" path="res://Sprite-0001.png" id="1_voi35"]
+[ext_resource type="Script" path="res://scenes/dialogue/dialogue.gd" id="1_1kee8"]
+[ext_resource type="Texture2D" uid="uid://byd4w6f56ramy" path="res://sprites/bullet.png" id="1_voi35"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dtop"]
 size = Vector2(797, 144)

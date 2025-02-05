@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bbxhr82j0vsqh"]
 
-[ext_resource type="Script" path="res://scenes/tower_selection_ui.gd" id="1_rl62t"]
+[ext_resource type="Script" path="res://scenes/ui/tower_selection_ui.gd" id="1_rl62t"]
 [ext_resource type="Texture2D" uid="uid://cn7xq2i3bjaaw" path="res://sprites/bobble.png" id="2_pimo3"]
 
 [node name="Control" type="Control"]
