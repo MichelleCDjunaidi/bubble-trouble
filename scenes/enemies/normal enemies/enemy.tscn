@@ -1,19 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://clqna6i8r03e"]
 
-[ext_resource type="Script" path="res://scenes/enemies/normal enemies/enemy.gd" id="1_hsq61"]
+[ext_resource type="Script" path="res://scenes/enemies/normal enemies/enemy.gd" id="1_ngswr"]
 [ext_resource type="Texture2D" uid="uid://bo8yknibo4cmq" path="res://sprites/nail.png" id="2_itot5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f3jqi"]
 radius = 31.0161
 
-[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("area2d") groups=["enemy"]]
-collision_mask = 2
+[node name="enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_mask = 134
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_hsq61")
-area2d = NodePath("Area2D")
+script = ExtResource("1_ngswr")
+speed = 50
+stealth_skill = true
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_f3jqi")
@@ -39,4 +42,5 @@ autostart = true
 shape = SubResource("CircleShape2D_f3jqi")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

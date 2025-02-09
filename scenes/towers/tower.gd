@@ -2,7 +2,7 @@ extends Node2D
 
 #flag for timer
 var timer_finished = true
-var bullet = load("res://scenes/bullet.tscn")
+var bullet = load("res://scenes/towers/bullet.tscn")
 var curr_target = null
 
 # Called when the node enters the scene tree for the first time.
@@ -18,11 +18,15 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	timer_finished = true
+	
+	#print('adad')
 	if curr_target != null:
+		#print('bullet')
 		var bullet_vector = curr_target.position - position
 		bullet_vector = bullet_vector.normalized()
 		if timer_finished:
 			var bullet_instance = bullet.instantiate()
+			#print('bullet')
 			bullet_instance.set_velocity(bullet_vector)
 			add_child(bullet_instance)
 			$AudioStreamPlayer2D.play()
