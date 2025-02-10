@@ -9,7 +9,7 @@ radius = 211.0
 height = 422.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yloej"]
-radius = 79.6492
+radius = 92.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 2
@@ -29,8 +29,8 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_er8yv")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
+[node name="DetectionTimer" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
@@ -42,7 +42,12 @@ pitch_scale = 1.5
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_yloej")
 
+[node name="ReloadTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DetectionTimer" to="." method="_on_detection_timer_timeout"]
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

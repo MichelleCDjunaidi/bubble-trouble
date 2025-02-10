@@ -43,6 +43,9 @@ func _unhandled_input(event):
 			tower.position = tile_map_layer_input.map_to_local(clicked_cell)
 			tower.radius(50)
 			add_child(tower)
-			Globals.button_clicked = false			
+			Globals.button_clicked = false
+			
+			Globals.clicked_cell = clicked_cell
+						
 		else:
 			Globals.button_clicked = false

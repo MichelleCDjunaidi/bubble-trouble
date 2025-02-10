@@ -6,6 +6,10 @@ var base_timer_started = false
 var enemy_entered = false
 var spawn_enemy = false
 
+var flag = false
+
+var clicked_cell = Vector2i(-1,-1)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
