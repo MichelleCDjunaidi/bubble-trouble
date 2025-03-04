@@ -10,6 +10,12 @@ var flag = false
 
 var clicked_cell = Vector2i(-1,-1)
 
+var pixel_size:float = 64
+
+var local_coord_list: PackedVector2Array
+var abuse_detected = false
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

@@ -26,7 +26,7 @@ func instantiate_enemy(enemy_type):
 	#index += 1
 		
 func _on_timer_timeout():
-	if index == 5:
+	if index == 100:
 		can_leave = true
 		$Timer.stop()
 	else:

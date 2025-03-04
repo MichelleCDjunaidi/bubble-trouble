@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvuo71wmr1xlh"]
+[gd_scene load_steps=5 format=3 uid="uid://cvuo71wmr1xlh"]
 
 [ext_resource type="Script" path="res://scenes/enemies/normal enemies/enemy.gd" id="1_r0u8g"]
-[ext_resource type="Texture2D" uid="uid://bovn01dofo0r1" path="res://icon.svg" id="3_wt3c4"]
+[ext_resource type="Texture2D" uid="uid://bv8q77gfptjkp" path="res://sprites/rock.png" id="2_b76rx"]
+[ext_resource type="PackedScene" uid="uid://cc66tmpsclp1x" path="res://scenes/navigation/navigation.tscn" id="3_eb5w2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f3jqi"]
 radius = 31.0161
@@ -21,11 +22,8 @@ shape = SubResource("CircleShape2D_f3jqi")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.756863, 0.380392, 0.141176, 1)
 position = Vector2(0, 2)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_wt3c4")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_postprocessing = 1
+scale = Vector2(1.77879, 1.77879)
+texture = ExtResource("2_b76rx")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
@@ -33,6 +31,8 @@ autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_f3jqi")
+
+[node name="Navigation" parent="." instance=ExtResource("3_eb5w2")]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_fast_enemy_area_2d_area_entered"]

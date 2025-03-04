@@ -2,64 +2,98 @@ extends CharacterBody2D
 class_name basic_enemy
 
 @export var speed = 150
-
-
 @export var player: Node2D
 @export var health = 100
 @export var area2d = Area2D
 @export var stealth_skill = false
 
-@onready var nav_agent:= $NavigationAgent2D as NavigationAgent2D
+var grass
 var movement_delta: float
+var is_moving:bool
+var external_astar_grid
+var current_position
+var target_position
+var tilemap
+var current_path: Array[Vector2i]
+var click:bool
 
+@export var movement_speed = 150
 #@onready var player = load("res://scenes/player/player.tscn")
 
 
 func _ready():
-	player = get_node("/root/World/player")
-	stealth()
-#$player
-#movement of enemey is classfied as void
-func _physics_process(delta: float) -> void:
-	#direction based on navigation agent
-	#converts global to local coordinates
-	var dir= to_local(nav_agent.get_next_path_position()).normalized()
-	velocity = dir*speed
-	move_and_slide()
-	#var next_position = _nav_agent.get_next_location()
-	#movement_delta = speed * delta
-	#var next_path_position: Vector2 = nav_agent.get_next_path_position()
-	#var new_velocity: Vector2 = global_position.direction_to(next_path_position) * movement_delta
-#
-	#if nav_agent.avoidance_enabled:
-		#nav_agent.set_velocity(new_velocity)
-	#else:
-		#_on_velocity_computed(new_velocity)
-		#
-#func _on_velocity_computed(safe_velocity: Vector2) -> void:
-	#global_position = global_position.move_toward(global_position + safe_velocity, movement_delta)
+	player = get_node_or_null("/root/World/player")
+	tilemap = get_node_or_null("/root/World/tile_map_layer_grass")
+	external_astar_grid = get_node_or_null("/root/World/tile_map_layer_grass").astar
 
-
-	
-func makepath() -> void:
-	#check for path only when enemy is not queue_freed
-	
-	if is_instance_valid(player):
-		nav_agent.target_position = player.global_position
-		#print('move')
+	if !player:
+		print("Error: Player node not found!")
+	if !grass:
+		print("Error: Grass node not found!")
+	if !external_astar_grid:
+		print("Error: AStarGrid not found!")
 		
-func _on_timer_timeout() -> void:
-	makepath()
+	current_path = tilemap.astar.get_id_path(
+		tilemap.local_to_map(global_position),
+		tilemap.local_to_map(player.global_position)
+	).slice(1)
+		
+	stealth()
+	
+##recalculate path
+func _unhandled_input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:	
+		click = true
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	#on entering player node, destroys itself
-	print('area:',area.get_parent().name)
+	print(area.get_parent().name)
 	if area.get_parent().name == 'player':
 		queue_free()
-		
+		print('destory myself')
 
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print('entered')
+	body.queue_free()
+	pass # Replace with function body.
+
+func _physics_process(_delta):
+	if current_path.is_empty():
+		return
+	if click == true:
+		current_path = tilemap.astar.get_id_path(
+		tilemap.local_to_map(global_position),
+		tilemap.local_to_map(player.global_position)
+		).slice(1)
+		click = false
 		
+	if current_path.front() == null:
+		Globals.abuse_detected = true
+		
+	if current_path.front() != null:
+		print(current_path.front())
+		var target_position = tilemap.map_to_local(current_path.front())
+		var direction = (target_position - global_position).normalized()
+		velocity = direction * speed
+		
+		move_and_slide()
+			
+		if (global_position - target_position).length() < speed * _delta:
+			global_position = target_position
+			current_path.pop_front()
+	#else:
+		#current_path.pop_front()
+		#Globals.abuse_detected == true
+		#print('adhjadhjad')
+		#print('adhjadhjad')
+		#print('adhjadhjad')
+						
+	
+	
+			
+	
+		#
 func stealth():
 	if stealth_skill:	
 		self.modulate.a = 0.3
-		#print('adjad')

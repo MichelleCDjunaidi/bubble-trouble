@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://scenes/towers/tower.gd" id="1_heel8"]
 [ext_resource type="Texture2D" uid="uid://cn7xq2i3bjaaw" path="res://sprites/bobble.png" id="2_u0np8"]
-[ext_resource type="AudioStream" uid="uid://fgoifiixc5y3" path="res://audio/bubble.wav" id="4_ve8xq"]
+[ext_resource type="AudioStream" uid="uid://fgoifiixc5y3" path="res://scenes/enemies/normal enemies/audio/bubble.wav" id="4_ve8xq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_er8yv"]
 radius = 211.0
 height = 422.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yloej"]
-radius = 92.0
+radius = 58.8218
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 2
@@ -43,7 +43,7 @@ scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_yloej")
 
 [node name="ReloadTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 5.0
 one_shot = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

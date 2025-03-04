@@ -19,14 +19,15 @@ func _process(delta: float) -> void:
 		var bullet_vector = curr_target.position - position
 		bullet_vector = bullet_vector.normalized()
 		var bullet_instance = bullet.instantiate()
-		#print('bullet')
+		print(bullet_instance)
+		print('bullet')
 		bullet_instance.set_velocity(bullet_vector)
-		#add_child(bullet_instance)
+		add_child(bullet_instance)
 		$AudioStreamPlayer2D.play()
 		
-	set_process(false)
-	await get_tree().create_timer(0.5).timeout
-	set_process(true)
+		set_process(false)
+		await get_tree().create_timer(1.5).timeout
+		set_process(true)
 	
 	
 	

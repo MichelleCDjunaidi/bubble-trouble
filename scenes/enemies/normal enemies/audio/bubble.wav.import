@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://fgoifiixc5y3"
-path="res://.godot/imported/bubble.wav-418c1d57b37358c4fefd495fc08ad2a9.sample"
+path="res://.godot/imported/bubble.wav-3a15e0637849adc90219ba43336acfee.sample"
 
 [deps]
 
-source_file="res://audio/bubble.wav"
-dest_files=["res://.godot/imported/bubble.wav-418c1d57b37358c4fefd495fc08ad2a9.sample"]
+source_file="res://scenes/enemies/normal enemies/audio/bubble.wav"
+dest_files=["res://.godot/imported/bubble.wav-3a15e0637849adc90219ba43336acfee.sample"]
 
 [params]
 
